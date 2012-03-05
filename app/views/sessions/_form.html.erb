@@ -1,0 +1,27 @@
+<%= form_for(@session) do |f| %>
+	<p>
+	  <div class="field">
+	    <%= f.label :begin_date, "Date" %><br />
+	    <%= f.date_select :begin_date %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :begin_time, "Start Time" %><br />
+	    <%= f.time_select :begin_time %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :location, "Location" %><br />
+	    <%= f.text_field :location %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :seeing, "Initial Seeing" %><br />
+	    <%= f.number_field :seeing %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :transparency, "Initial Transparency" %><br />
+	    <%= f.number_field :transparency %>
+	  </div>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
