@@ -1,4 +1,5 @@
 <%= form_for(@session) do |f| %>
+	<%= f.error_messages %>
 	<p>
 	  <div class="field">
 	    <%= f.label :begin_date, "Date" %><br />
@@ -14,11 +15,11 @@
 	  </div>
 	  <div class="field">
 	    <%= f.label :seeing, "Initial Seeing" %><br />
-	    <%= f.number_field :seeing %>
+	    <%= f.number_field :seeing, :in => 1..5 %>
 	  </div>
 	  <div class="field">
 	    <%= f.label :transparency, "Initial Transparency" %><br />
-	    <%= f.number_field :transparency %>
+	    <%= f.number_field :transparency, :in => 1..5 %>
 	  </div>
   </p>
   <div class="actions">

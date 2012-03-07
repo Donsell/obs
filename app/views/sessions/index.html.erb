@@ -1,1 +1,9 @@
 <%= link_to "New Session", new_session_path %>
+<h2>Sessions</h2>
+<ul>
+	<% @sessions.each do |session| %>
+		<li><%= link_to session.begin_date, session.begin_date.to_s %>
+			<%= session.location %>
+		</li>
+	<% end %>
+</ul>

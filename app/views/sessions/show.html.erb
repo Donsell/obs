@@ -1,2 +1,9 @@
-<h2>Session</h2>
+<% title(@session.location, @session.begin_date.to_s) %>
+<title>
+	<% if content_for?(:title) %>
+		<%= yield(:title) %>
+	<% else %>
+		Observation
+	<% end %>
+</title>
 <%= render "form" %>
