@@ -22,4 +22,15 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
   end
   
+  def edit
+    @session = Session.find(params[:id])
+  end
+  
+  def update
+    @session = Session.find(params[:id])
+    @session.update_attributes(params[:session])
+    flash[:notice] = "Session has been updated."
+    redirect_to @session
+  end
+  
 end
