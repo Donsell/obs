@@ -10,8 +10,8 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    when /the seesion page for "([^\"]*)"/
-      session_path(Session.find_by_name!($1))
+    when /the session page for "([^\"]*)"/
+      session_path(Session.find_by_begin_date!($1))
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

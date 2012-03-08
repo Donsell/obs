@@ -2,7 +2,7 @@
 <h2>Sessions</h2>
 <ul>
 	<% @sessions.each do |session| %>
-		<li><%= link_to session.begin_date, session.begin_date.to_s %>
+		<li><%= link_to session.begin_date, session %>
 			<%= session.location %>
 		</li>
 	<% end %>
