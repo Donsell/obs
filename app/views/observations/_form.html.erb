@@ -1,0 +1,24 @@
+<%= form_for [@session, @observation] do |f| %>
+	<%= f.error_messages %>
+	<p>
+		<%= f.label :obs_date, "Date" %>
+		<%= f.date_select :obs_date %>
+	</p>
+	<p>
+		<%= f.label :obs_time, "Time" %>
+		<%= f.time_select :obs_time %>
+	</p>
+	<p>
+		<%= f.label :seeing, "Seeing" %>
+		<%= f.number_field :seeing, :in => 1..10 %>
+	</p>
+	<p>
+		<%= f.label :transparency, "Transparency" %>
+		<%= f.number_field :transparency, :in=> 1..5 %>
+	</p>
+	<p>
+		<%= f.label :notes, "Notes" %>
+		<%= f.text_area :notes %>
+	</p>
+	<%= f.submit %>
+<% end %>

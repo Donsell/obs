@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304195459) do
+ActiveRecord::Schema.define(:version => 20120309223858) do
+
+  create_table "observations", :force => true do |t|
+    t.date     "obs_date"
+    t.time     "obs_time"
+    t.integer  "seeing"
+    t.integer  "transparency"
+    t.text     "notes"
+    t.integer  "session_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "observations", ["session_id"], :name => "index_observations_on_session_id"
 
   create_table "sessions", :force => true do |t|
     t.date     "begin_date"
