@@ -1,8 +1,8 @@
 <div id='observation'>
-	<h2><%= @observation.obs_date %></h2>
+	<%= render "obs" %>
 	<p>
 		<%= @observation.obs_date.to_s %>
-		<%= @observation.obs_time.to_s %>
+		<%= @observation.obs_time.strftime("%H:%M:%S") %>
 		<%= simple_format(@observation.notes) %>
 	</p>
 </div>

@@ -9,6 +9,10 @@
 		<%= f.time_select :obs_time %>
 	</p>
 	<p>
+		<%= f.label :body_id, "Object" %>
+		<%= f.number_field :body_id %>
+	</p>
+	<p>
 		<%= f.label :seeing, "Seeing" %>
 		<%= f.number_field :seeing, :in => 1..10 %>
 	</p>

@@ -1,0 +1,50 @@
+	<h2>
+	<% idx = 0 %>
+	<% @observation.body.catalogs.each_with_index do |cat| %>
+		<%= (idx > 0 ? "- " : "") + cat.catalog + " " + cat.catalog_num %>
+		<% idx = 1 %>
+	<% end %>
+	</h2>
+	<h3>
+		Class
+		<%= @observation.body.class_id %>
+		<%= @observation.body_type.description + " in " + @observation.constellation.constellation %>
+	</h3>
+	<p>
+		<%= "Right Ascension: " + @observation.body.right_ascension.strftime("%Hh%Mm%Ss") + " Declination: " + @observation.body.declination.to_s %>
+	</p>
+	<p>
+		Magnatude: <%= @observation.body.magnitude.to_s %>
+	</p>
+	<p>
+		Service Brigntness: <%= @observation.body.surface_brightness %>
+	</p>
+	<p>
+		Found on: <br>
+		Sky Atlas 2000 Page <%= @observation.body.sky_atlas_2000 %>,
+		Pocket Sky Atlas Page <%= @observation.body.pocket_sky_atlas %>,
+		Uranometria Page <%= @observation.body.uranometria %>
+	</p>
+	<p>
+		<% if @observation.body.size_max != nil %>
+			Maximum Size: <%= @observation.body.size_max %>
+		<% end %>
+		<% if @observation.body.size_min != nil %>
+			Minimum Size: <%= @observation.body.size_min %>
+		<% end %>
+		<% if @observation.body.position_angle != nil %>
+			Position Angle: <%= @observation.body.position_angle %>
+		<% end %>
+	</p>	
+	<p>
+		<% if @observation.body.number_of_stars != nil %>
+			Number of stars: <%= @observation.body.number_of_stars %>
+		<% end %>
+		<% if @observation.body.brightest_star_mag != nil %>
+			Magnitude of Brightest Star: <%= @observation.body.brightest_star_mag %>
+		<% end %>
+	</p>
+	<p>
+		NGC Description: <%= @observation.body.ngc_description %> 
+		<%= ngcdescription %>
+	</p>

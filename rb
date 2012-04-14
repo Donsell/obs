@@ -27,7 +27,6 @@ end
 #=end
 #=begin 
 Body.delete_all
-Catalog.delete_all
 
 open ("public/data/bodies.csv") do |bodies|
   bodies.read.each_line do |body|
@@ -100,7 +99,7 @@ open ("public/data/bodies.csv") do |bodies|
     else
       psa_page = base_page
     end
-     body = Body.create!(
+    Body.create!(
       :body_id => object_id,
       :alt_id => alt_id,
       :body_type_id => btype.first.id,
@@ -120,40 +119,6 @@ open ("public/data/bodies.csv") do |bodies|
       :brightest_star_mag => bs,
       :ngc_description => ngc, 
     )
-    body_array = object_id.split(';')
-    body_array.each do |entry|
-      entry.squeeze!(" ") 
-      entry.sub!("V V", "VV")
-      entry.sub!("- ", "-")
-      entry.sub!("- ", "-")
-      entry.sub!(". ", ".")
-      entry.sub!(". ", ".")
-      entry.sub!("Sh2-", "Sh2 ")
-      entry_array = entry.split
-      Catalog.create!(
-        :catalog => entry_array[0],
-        :catalog_num => entry_array[1],
-        :body_id => body.id,
-      )
-    end
-    body_array = alt_id.split(';')
-    body_array.each do |entry|
-      entry.squeeze!(" ")
-      entry.sub!("V V", "VV")
-      entry.sub!("- ", "-")
-      entry.sub!("- ", "-")
-      entry.sub!("- ", "-")
-      entry.sub!(". ", ".")
-      entry.sub!("Sh2-", "Sh2 ")
-      entry_array = entry.split
-      if entry_array.length > 1
-        Catalog.create!(
-          :catalog => entry_array[0],
-          :catalog_num => entry_array[1],
-          :body_id => body.id,
-        )
-      end
-    end
   end
 end
 #=end
